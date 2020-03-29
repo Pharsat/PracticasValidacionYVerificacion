@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6de54288-77e8-4ffa-ba52-34241086f5aa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_books_testing/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_books_testing/behaviours/__init__.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,10 +54,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="782" y="435" key="Github.CreateGistDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585516500215" />
-    <state x="1584" y="11" key="SettingsEditor" timestamp="1585517871951">
+    <state x="1584" y="11" key="SettingsEditor" timestamp="1585518037755">
       <screen x="1366" y="0" width="1600" height="860" />
     </state>
     <state x="186" y="9" key="SettingsEditor/0.0.1366.728/1366.0.1600.860@0.0.1366.728" timestamp="1585517780931" />
-    <state x="1584" y="11" key="SettingsEditor/0.0.1366.728/1366.0.1600.860@1366.0.1600.860" timestamp="1585517871951" />
+    <state x="1584" y="11" key="SettingsEditor/0.0.1366.728/1366.0.1600.860@1366.0.1600.860" timestamp="1585518037755" />
   </component>
 </project>
