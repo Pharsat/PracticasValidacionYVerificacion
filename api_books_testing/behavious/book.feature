@@ -12,22 +12,21 @@ Feature: Administracion de libros
     Then  Ve el codigo de respuesta 200
     And   el ve la informacion del libro creado en la respuesta
 
-
-    Scenario: Elimina libro por id
-      Given usuario consulta el endpoint
-      When  elimina el libro con id 1
-      Then  ve el codigo de respuesta 200
-      And   el ve la informacion del libro eliminado en la respuesta
+  Scenario: Elimina libro por id
+    Given usuario consulta el endpoint
+    When  elimina el libro con id 1
+    Then  ve el codigo de respuesta 200
+    And   el ve la informacion del libro eliminado en la respuesta
 
   Scenario: Consulta libro por id
-      Given usuario consulta el endpoint
-      When  consulta el libro con id 10
-      Then  ve el codigo de respuesta 200
-      And   el ve la informacion del libro
+    Given usuario consulta el endpoint
+    When  consulta el libro con id 10
+    Then  ve el codigo de respuesta 200
+    And   el ve la informacion del libro
 
-    Scenario: Actualizar libro
-      Given Usuario consulta el endpoint
-      When  ingresa el id del libro 10
-      And   envia la informacion del libro para actualizar
-      Then  ve el codigo de respuesta 200
-      And   el ve la informacion del libro actualizado
+  Scenario: Actualizar libro
+    Given Usuario consulta el endpoint
+    When  ingresa el id del libro 10
+    And   envia la informacion del libro para actualizar
+    Then  ve el codigo de respuesta 200
+    And   el ve la informacion del libro actualizado

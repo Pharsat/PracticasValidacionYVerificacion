@@ -4,7 +4,7 @@ from datetime import datetime
 
 from api_books_testing.request_api_book import api_book as api
 
-class ApirequestBooks(unittest.TestCase):
+class ApiRequestAuthors(unittest.TestCase):
     now = datetime.now()
 
     def test_get_all_books(self, endpoint):
@@ -18,7 +18,6 @@ class ApirequestBooks(unittest.TestCase):
 
     def validate_code(self, code):
         self.assertEquals(self.response.status_code, code)
-
 
 if __name__ == '__main__':
     unittest.main()
