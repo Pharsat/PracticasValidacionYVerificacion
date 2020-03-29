@@ -29,6 +29,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -53,5 +54,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="782" y="435" key="Github.CreateGistDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585516500215" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1585518045622">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585518045622" />
   </component>
 </project>
