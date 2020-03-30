@@ -27,7 +27,7 @@ Feature: Administracion de libros
     And   el ve la informacion del libro: "<id>","<titulo>","<descripcion>","<num_pag>","<extracto>","<fecha_publicacion>"
     Examples:
       | id | titulo  | descripcion                                                  | num_pag | extracto                                                                                                                                                                                                                                                                                                     | fecha_publicacion                 |
-      | 10 | Book 10 | Lorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\r\n | 1000    | Lorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\r\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\r\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\r\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\r\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\r\n | 2020-03-20T02:39:00.9575411+00:00 |
+      | 10 | Book 10 | Lorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\r\n | 1000    | Lorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\r\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\r\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\r\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\r\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\r\n | 2020-03-20T11:02:53.1151091+00:00 |
 
   Scenario Outline: Actualizar libro
     Given usuario consulta el endpoint
@@ -37,4 +37,4 @@ Feature: Administracion de libros
     And   el ve la informacion del libro actualizado
     Examples:
       | id | titulo             | descripcion                                         | num_pag | extracto           | fecha_publicacion   |
-      | 10 | Catalino Bocachica | Suenos hechos realidad gracias al empeno y el valor | 100     | Lorem lorem lorem. | 1998-03-05T00:00:00 |
+      | 10 | Catalino Bocachica | Suenos hechos realidad gracias al empeno y el valor | 100     | Lorem lorem lorem. | 0001-01-01T00:00:00 |

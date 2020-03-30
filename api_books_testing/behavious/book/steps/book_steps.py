@@ -36,7 +36,7 @@ def step_impl(context, id, title, Description, PageCount, Excerpt, PublishDate):
 
 @then(u'el ve la informacion del libro creado en la respuesta')
 def step_impl(context):
-    test_api.valide_new_book()
+    test_api.validate_new_book()
 
 
 @when(u'elimina el libro con id {id}')
@@ -51,19 +51,20 @@ def step_impl(context, id):
 
 @then(u'el ve la informacion del libro: "{id}","{title}","{Description}","{PageCount}","{Excerpt}","{PublishDate}"')
 def step_impl(context, id, title, Description, PageCount, Excerpt, PublishDate):
-    test_api.validate_get_book_by_id(id, title, Description, PageCount, Excerpt, PublishDate)
+    test_api.validate_book_by_id(id, title, Description, PageCount, Excerpt, PublishDate)
 
 
 @when(u'ingresa el id del libro {id}')
-def step_impl(context,id):
-    context.id=id
+def step_impl(context, id):
+    context.id = id
 
 
-@when(u'envia la informacion del libro para actualizar: "{id}","{title}","{Description}","{PageCount}","{Excerpt}","{PublishDate}"')
-def step_impl(context,id, title, Description, PageCount, Excerpt, PublishDate):
-    pass
+@when(
+    u'envia la informacion del libro para actualizar: "{id}","{title}","{Description}","{PageCount}","{Excerpt}","{PublishDate}"')
+def step_impl(context, id, title, Description, PageCount, Excerpt, PublishDate):
+    test_api.test_put_book_by_id(context.endpoint, context.id, id, title, Description, PageCount, Excerpt, PublishDate)
 
 
 @then(u'el ve la informacion del libro actualizado')
 def step_impl(context):
-    pass
+    test_api.validate_response_book()
