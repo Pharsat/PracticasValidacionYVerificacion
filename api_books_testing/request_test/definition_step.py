@@ -13,16 +13,34 @@ class ApirequestBooks(unittest.TestCase):
         return self.response
 
     def test_post_new_book(self, endpoint, id, title, Description, PageCount, Excerpt, PublishDate):
-        self.payload = {
-            "ID": id,
+        self.payload = json.dumps({
+            "ID": int(id),
             "Title": "{}".format(title),
             "Description": "{}".format(Description),
-            "PageCount": PageCount,
+            "PageCount": int(PageCount),
             "Excerpt": "{}".format(Excerpt),
-            "PublishDate": PublishDate
-        }
-        self.response = api.post_new_book(endpoint, json.dumps(self.payload))
+            "PublishDate": "{}".format(PublishDate)
+        })
+
+        self.response = api.post_new_book(endpoint, self.payload)
         return self.response
+
+    def test_delete_book(self, endpoint, id):
+        self.response = api.delete_book(endpoint, id)
+
+    def test_get_book_by_id(self, endpoint, id):
+        self.response = api.get_book_by_id(endpoint, id)
+
+    def test_put_book_by_id(self, endpoint, id, id_book, title, Description, PageCount, Excerpt, PublishDate):
+        self.payload = json.dumps({
+            "ID": int(id_book),
+            "Title": "{}".format(title),
+            "Description": "{}".format(Description),
+            "PageCount": int(PageCount),
+            "Excerpt": "{}".format(Excerpt),
+            "PublishDate": "{}".format(PublishDate)
+        })
+        self.response = api.put_book_by_id(endpoint, id, self.payload)
 
     def validate_number_book(self, number_book):
         response_data = json.loads(self.response.text)
@@ -31,9 +49,22 @@ class ApirequestBooks(unittest.TestCase):
 
     def validate_code(self, code_expected):
         self.assertEquals(self.response.status_code, code_expected)
+
     def valide_new_book(self):
-        print(self.response.text)
-        self.assertEquals(self.response.text,self.payload)
+        self.assertEquals(json.loads(self.response.text), json.loads(self.payload))
+
+    def validate_get_book_by_id(self, id, title, Description, PageCount, Excerpt, PublishDate):
+        self.payload2 = json.dumps({
+            "ID": int(id),
+            "Title": "{}".format(title),
+            "Description": "{}".format(Description),
+            "PageCount": int(PageCount),
+            "Excerpt": "{}".format(Excerpt),
+            "PublishDate": "{}".format(PublishDate)
+        })
+        print(json.loads(self.response.text))
+        print(json.loads(self.payload2))
+        self.assertAlmostEqual(json.loads(self.response.text), json.loads(self.payload2))
 
 
 if __name__ == '__main__':
