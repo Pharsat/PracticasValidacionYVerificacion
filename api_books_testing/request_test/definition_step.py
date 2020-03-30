@@ -33,7 +33,7 @@ class ApirequestBooks(unittest.TestCase):
         self.assertEquals(self.response.status_code, code_expected)
     def valide_new_book(self):
         print(self.response.text)
-        self.assertEquals(self.response.text,self.payload)
+        self.assertEquals(self.response.text,json.dumps(self.payload))
 
 
 if __name__ == '__main__':
