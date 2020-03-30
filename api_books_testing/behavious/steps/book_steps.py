@@ -14,12 +14,10 @@ def step_impl(context):
 def step_impl(context):
     context.response = test_api.test_get_all_books(context.endpoint)
 
-
 @then(u've el codigo de respuesta {code}')
 def step_impl(context, code):
     context.code = code
     test_api.validate_code(int(context.code))
-
 
 @then(u'el ve {number_books} libros listados')
 def step_impl(context, number_books):
