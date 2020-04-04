@@ -1,15 +1,17 @@
 import time
 import unittest
-from tests.login import LoginTest
+from mercury_tours_testing.tests.login import LoginTest
 
 login = LoginTest()
+
 
 class FlightFinderTest(unittest.TestCase):
 
     # Este método realiza la búsqueda de los vuelos para la rutaespecificada
     def test_search_flight(self, desde, hacia, cantidadPasajeros, aerolinea):
         self.driver = login.driver
-        self.driver.find_element_by_xpath("//select[@name='passCount']/option[@value=" + cantidadPasajeros + "]").click()
+        self.driver.find_element_by_xpath(
+            "//select[@name='passCount']/option[@value=" + cantidadPasajeros + "]").click()
         self.driver.find_element_by_xpath("//select[@name='fromPort']/option[@value=" + desde + "]").click()
         self.driver.find_element_by_xpath("//select[@name='fromMonth']/option[@value='12']").click()
         self.driver.find_element_by_xpath("//select[@name='fromDay']/option[@value='1']").click()
@@ -26,12 +28,15 @@ class FlightFinderTest(unittest.TestCase):
         self.assertTrue(reserveFlights)
 
     def test_select_flight(self):
-        self.driver.find_element_by_css_selector("input[type='radio'][value='Blue Skies Airlines$360$270$5:03']").click()
-        self.driver.find_element_by_css_selector("input[type='radio'][value='Blue Skies Airlines$630$270$12:23']").click()
+        self.driver.find_element_by_css_selector(
+            "input[type='radio'][value='Blue Skies Airlines$360$270$5:03']").click()
+        self.driver.find_element_by_css_selector(
+            "input[type='radio'][value='Blue Skies Airlines$630$270$12:23']").click()
         self.driver.find_element_by_xpath("//input[@name='reserveFlights']").click()
         # time.sleep(5)
 
-    def test_book_flight(self, nombre, apellido, tipoTarjeta, numeroTarjeta, mesExp, anioExp, direccion, ciudad, estado, codPostal):
+    def test_book_flight(self, nombre, apellido, tipoTarjeta, numeroTarjeta, mesExp, anioExp, direccion, ciudad, estado,
+                         codPostal):
         self.driver.find_element_by_name("passFirst0").send_keys(nombre)
         self.driver.find_element_by_name("passLast0").send_keys(apellido)
         self.driver.find_element_by_xpath("//select[@name='creditCard']/option[text()=" + tipoTarjeta + "]").click()
@@ -54,9 +59,10 @@ class FlightFinderTest(unittest.TestCase):
         # time.sleep(5)
 
     # Este método se ejecuta al final y cierra el navegador
-    @ classmethod
+    @classmethod
     def tearDownClass(self):
         login.tearDownClass()
+
 
 if __name__ == '__main__':
     unittest.main()
