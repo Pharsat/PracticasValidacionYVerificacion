@@ -1,6 +1,6 @@
 import time
 import unittest
-from tests.login import LoginTest
+from mercury_tours_testing.tests.login import LoginTest
 
 login = LoginTest()
 
@@ -22,7 +22,7 @@ class FlightFinderTest(unittest.TestCase):
         time.sleep(3)
 
     def test_flight_found(self):
-        reserveFlights = self.driver.find_element_by_xpath("//input[@name='reserveFlights']")
+        reserveFlights = self.driver.find_element_by_xpath("//input[@name='reserveFlights']").is_displayed()
         self.assertTrue(reserveFlights)
 
     def test_select_flight(self):
@@ -50,7 +50,8 @@ class FlightFinderTest(unittest.TestCase):
         # time.sleep(5)
 
     def test1_confirmation(self):
-        self.driver.find_elements_by_xpath("//*[contains(text(), 'Your itinerary has been bookt')]")
+      image =self.driver.find_elements_by_xpath("//img[contains(@src,'/mast_confirmation.gif')]")
+      self.assertTrue(image)
         # time.sleep(5)
 
     # Este método se ejecuta al final y cierra el navegador

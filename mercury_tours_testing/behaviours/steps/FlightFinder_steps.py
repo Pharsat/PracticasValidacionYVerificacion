@@ -1,6 +1,6 @@
 from behave import *
-from tests.login import LoginTest
-from tests.FlightFinder import FlightFinderTest
+from mercury_tours_testing.tests.login import LoginTest
+from mercury_tours_testing.tests.FlightFinder import FlightFinderTest
 flightFinderTest = FlightFinderTest()
 login = LoginTest()
 

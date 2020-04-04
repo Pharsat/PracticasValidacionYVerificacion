@@ -1,5 +1,5 @@
 from behave import *
-from tests.login import LoginTest
+from mercury_tours_testing.tests.login import LoginTest
 test = LoginTest()
 @given(u'Estoy en la pagina de Mercury Tours')
 def step_impl(context):
