@@ -18,13 +18,13 @@ Feature: Administracion de autores
 
   Scenario: crear un autor
     Given usuario consulta el enpoing de crear un autor
-    When  realiza la petición post al endpoint /api/Authors mandando un autor de nombre "Cristian", apellido "Gallego" autor del libro "4"
+    When  realiza la peticion post al endpoint /api/Authors mandando un autor de nombre "Cristian", apellido "Gallego" autor del libro "4"
     Then  ve el codigo de respuesta "200"
     And   el usuario ve que el autor que acaba de crear tiene nombre "Cristian", apellido "Gallego" autor del libro "4"
 
   Scenario: eliminar el autor numero 10
     Given usuario consulta el endpoint de eliminar un autor
-    When  realiza la petición delete al endpoint /api/Authors/"10"
+    When  realiza la peticion delete al endpoint /api/Authors/"10"
     Then  ve el codigo de respuesta "200"
     And   el usuario obtiene una respuesta vacia.
 

@@ -51,7 +51,7 @@ def step_impl(context):
 
 
 @when(
-    u'realiza la petición post al endpoint /api/Authors mandando un autor de nombre "{author_name}", apellido "{author_lastname}" autor del libro "{book_id}"')
+    u'realiza la peticion post al endpoint /api/Authors mandando un autor de nombre "{author_name}", apellido "{author_lastname}" autor del libro "{book_id}"')
 def step_impl(context, author_name, author_lastname, book_id):
     payload = json.dumps({
         "IDBook": int(book_id),
@@ -78,7 +78,7 @@ def step_impl(context):
     context.endpoint = "/api/Authors/{}"
 
 
-@when(u'realiza la petición delete al endpoint /api/Authors/"{authod_id}"')
+@when(u'realiza la peticion delete al endpoint /api/Authors/"{authod_id}"')
 def step_impl(context, authod_id):
     test.test_delete_author(context.endpoint, int(authod_id))
 
@@ -124,4 +124,3 @@ def step_impl(context, author_id, id_book, first_name, last_name):
     })
     test.test_update_author(context.endpoint, int(author_id), payload)
     test.text_validate_two_json_objects_are_equal(payload)
-
