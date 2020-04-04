@@ -2,11 +2,13 @@ import time
 import unittest
 from selenium import webdriver
 
+
 class LoginTest(unittest.TestCase):
     # Este método se ejecuta la primera vez para instanciar el navegador
     @classmethod
     def setUpClass(cls):
-        cls.driver = webdriver.Chrome(executable_path=r"C:\Users\ALEXA\Documents\Verificción y Validación\PracticasValidacionYVerificacion\mercury_tours_testing\drivers\chromedriver.exe")
+        cls.driver = webdriver.Chrome(
+            executable_path=r"C:\Oscar\Cursos\U\Verificacion y validacion\ApiTesting\venv\ui_testing\drivers\chromedriver.exe")
         cls.driver.maximize_window()
 
     # Este método recibe como parámetro la URL del sitio
@@ -30,14 +32,15 @@ class LoginTest(unittest.TestCase):
         time.sleep(2)
 
     def test_image(self):
-        image =self.driver.find_element_by_xpath("//img[contains(@src,'mast_flightfinder.gif')]").is_displayed()
+        image = self.driver.find_element_by_xpath("//img[contains(@src,'mast_flightfinder.gif')]").is_displayed()
         self.assertTrue(image)
 
     # Este método se ejecuta al final y cierra el navegador
-    @ classmethod
+    @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
         print("prueba completada con éxito")
+
 
 if __name__ == '__main__':
     unittest.main()

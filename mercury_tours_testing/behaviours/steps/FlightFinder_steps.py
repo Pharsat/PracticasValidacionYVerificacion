@@ -1,8 +1,10 @@
 from behave import *
 from mercury_tours_testing.tests.login import LoginTest
 from mercury_tours_testing.tests.FlightFinder import FlightFinderTest
+
 flightFinderTest = FlightFinderTest()
 login = LoginTest()
+
 
 @when(u'Busco vuelos de {desde} hacia {hacia} para {cantidadPasajeros} pasajeros en la aerolinea {aerolinea}')
 def step_impl(context, desde, hacia, cantidadPasajeros, aerolinea):
@@ -12,12 +14,16 @@ def step_impl(context, desde, hacia, cantidadPasajeros, aerolinea):
     context.aerolinea = aerolinea
     flightFinderTest.test_search_flight(context.desde, context.hacia, context.cantidadPasajeros, context.aerolinea)
 
+
 @when(u'Selecciono el vuelo de ida y de regreso')
 def step_impl(context):
     flightFinderTest.test_select_flight()
 
-@when(u'Ingreso los datos de los pasajeros {nombre} {apellido} {tipoTarjeta} {numeroTarjeta} {mesExp} {anioExp} {direccion} {ciudad} {estado} {codPostal}')
-def step_impl(context, nombre, apellido, tipoTarjeta, numeroTarjeta, mesExp, anioExp, direccion, ciudad, estado, codPostal):
+
+@when(
+    u'Ingreso los datos de los pasajeros {nombre} {apellido} {tipoTarjeta} {numeroTarjeta} {mesExp} {anioExp} {direccion} {ciudad} {estado} {codPostal}')
+def step_impl(context, nombre, apellido, tipoTarjeta, numeroTarjeta, mesExp, anioExp, direccion, ciudad, estado,
+              codPostal):
     context.nombre = nombre
     context.apellido = apellido
     context.tipoTarjeta = tipoTarjeta
@@ -32,10 +38,12 @@ def step_impl(context, nombre, apellido, tipoTarjeta, numeroTarjeta, mesExp, ani
                                       context.numeroTarjeta, context.mesExp, context.anioExp, context.direccion,
                                       context.ciudad, context.estado, context.codPostal)
 
+
 @then(u'El sistema muestra los vuelos disponibles')
 def step_impl(context):
     flightFinderTest.test_flight_found()
     flightFinderTest.tearDownClass()
+
 
 @then(u'El sistema confirma la reserva')
 def step_impl(context):

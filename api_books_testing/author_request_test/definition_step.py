@@ -25,15 +25,26 @@ class ApiRequestAuthors(unittest.TestCase):
     def test_update_author(self, endpoint, author_id, author_data):
         self.response = api.update_author(endpoint, author_id, author_data)
 
-    def test_items_count(self):
+    def test_items_count(self, required_value):
         response_data = json.loads(self.response.text)
-        self.items_count = len(response_data)
+        self.assertEquals(required_value, len(response_data))
 
     def test_item_check(self):
         response_data = json.loads(self.response.text)
         self.item = response_data
 
+    def test_validate_response_code(self, code):
+        self.assertEquals(self.response.status_code, code)
+
+    def text_validate_two_json_objects_are_equal(self, object_to_validate):
+        self.assertEquals(json.loads(self.response.text), json.loads(object_to_validate))
+
+    def test_validate_empty_response(self):
+        print(self.response.text)
+        self.assertEquals(self.response.text, "")
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
-
