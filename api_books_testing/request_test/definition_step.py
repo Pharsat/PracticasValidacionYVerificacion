@@ -32,7 +32,7 @@ class ApirequestBooks(unittest.TestCase):
         self.response = api.get_book_by_id(endpoint, id)
 
     def test_put_book_by_id(self, endpoint, id, id_book, title, Description, PageCount, Excerpt, PublishDate):
-        self.payload = json.dumps({
+        self.payload_put = json.dumps({
             "ID": int(id_book),
             "Title": "{}".format(title),
             "Description": "{}".format(Description),
@@ -40,7 +40,7 @@ class ApirequestBooks(unittest.TestCase):
             "Excerpt": "{}".format(Excerpt),
             "PublishDate": "{}".format(PublishDate)
         })
-        self.response = api.put_book_by_id(endpoint, id, self.payload)
+        self.response_put = api.put_book_by_id(endpoint, id, self.payload_put)
 
     def validate_number_book(self, number_book):
         response_data = json.loads(self.response.text)
@@ -50,21 +50,23 @@ class ApirequestBooks(unittest.TestCase):
     def validate_code(self, code_expected):
         self.assertEquals(self.response.status_code, code_expected)
 
-    def valide_new_book(self):
+    def validate_new_book(self):
         self.assertEquals(json.loads(self.response.text), json.loads(self.payload))
 
-    def validate_get_book_by_id(self, id, title, Description, PageCount, Excerpt, PublishDate):
+    def validate_response_book(self):
+        self.assertEquals(json.loads(self.response_put.text), json.loads(self.payload_put))
+
+    def validate_book_by_id(self, id, title, Description, PageCount, Excerpt, PublishDate):
+        self.response_text = json.loads((self.response.text).replace("\\r\\n", ""))
         self.payload2 = json.dumps({
             "ID": int(id),
-            "Title": "{}".format(title),
-            "Description": "{}".format(Description),
+            "Title": "{}".format(title.replace("\\r\\n", "")),
+            "Description": "{}".format(Description.replace("\\r\\n", "")),
             "PageCount": int(PageCount),
-            "Excerpt": "{}".format(Excerpt),
-            "PublishDate": "{}".format(PublishDate)
+            "Excerpt": "{}".format(Excerpt.replace("\\r\\n", "")),
+            "PublishDate": self.response_text["PublishDate"]
         })
-        print(json.loads(self.response.text))
-        print(json.loads(self.payload2))
-        self.assertAlmostEqual(json.loads(self.response.text), json.loads(self.payload2))
+        self.assertEqual(self.response_text, json.loads(self.payload2))
 
 
 if __name__ == '__main__':
