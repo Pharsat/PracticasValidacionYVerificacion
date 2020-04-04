@@ -22,3 +22,14 @@ Feature: Buscar vuelos en Mercury Tours
       | London | Frankfurt | 1           | Blue Skies Airlines | Carlos | Jaramillo | Visa        | 123456789     | 02     | 2010    | cll10#40-20 | Medellin | Antioquia | 057       |
       | Paris  | London    | 1           | Pangea Airlines     | Ana    | Torres    | MasterCard  | 987456987     | 05     | 2009    | cll50#10-32 | Sabaneta | Antioquia | 057       |
 
+  Scenario Outline: Selecion de vuelo
+    Given Estoy en la pagina de Mercury Tours
+    When Ingreso un usuario "osolisd" y un password "Moscar13*"
+    And Busco vuelos de "<origen>" hacia "<destino>" para "<numpasajero>" pasajeros en la aerolinea "<aerolinea>"
+    And Selecciono el vuelo de ida y de regreso
+    Then Se despliega la pagina de reserva del vuelo
+
+    Examples:
+      | origen | destino   | numpasajero | aerolinea           |
+      | London | Frankfurt | 1           | Blue Skies Airlines |
+      | Paris  | London    | 1           | Pangea Airlines     |

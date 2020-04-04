@@ -49,3 +49,8 @@ def step_impl(context):
 def step_impl(context):
     flightFinderTest.test1_confirmation()
     flightFinderTest.tearDownClass()
+
+@then(u'Se despliega la pagina de reserva del vuelo')
+def step_impl(context):
+    flightFinderTest.test1_summary_flight()
+    flightFinderTest.tearDownClass()

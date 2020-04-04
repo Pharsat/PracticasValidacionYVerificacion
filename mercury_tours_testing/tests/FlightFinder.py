@@ -58,6 +58,9 @@ class FlightFinderTest(unittest.TestCase):
       image =self.driver.find_elements_by_xpath("//img[contains(@src,'/mast_confirmation.gif')]")
       self.assertTrue(image)
         # time.sleep(5)
+    def test1_summary_flight(self):
+        image = self.driver.find_elements_by_xpath("//img[contains(@src,'/masts/mast_book.gif')]")
+        self.assertTrue(image)
 
     # Este método se ejecuta al final y cierra el navegador
     @classmethod

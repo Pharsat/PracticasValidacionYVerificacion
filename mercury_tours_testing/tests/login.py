@@ -8,7 +8,7 @@ class LoginTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Chrome(
-            executable_path=r"C:\Oscar\Cursos\U\Verificacion y validacion\ApiTesting\venv\ui_testing\drivers\chromedriver.exe")
+            executable_path="C:\Oscar\Cursos\U\Verificacion y validacion\ApiTesting\venv\ui_testing\drivers\chromedriver.exe")
         cls.driver.maximize_window()
 
     # Este método recibe como parámetro la URL del sitio
